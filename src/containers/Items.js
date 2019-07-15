@@ -7,7 +7,7 @@ const Items = (props) => (
 		{props.items.map(item => 
 			<div className="ItemCard">
 			<h4>{item.name}</h4>
-			<img src={item.img_url} alt={item.name} width="500px" height="500px" />
+			<img src={item.img_url} alt={item.name} width="200px" height="200px" />
 			<p>Price: ${item.price}</p>
 			<p>Description: {item.description}</p>
 			</div>
