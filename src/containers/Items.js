@@ -1,16 +1,12 @@
 import React from 'react';
 import './Item.css';
+import ItemCard from '../components/ItemCard'
 const Items = (props) => (
 
 	<div>
 		<h3>Items:</h3>
-		{props.items.map((item, index) => 
-			<div key={item.id} className="ItemCard">
-			<h4>{item.name}</h4>
-			<img src={item.img_url} alt={item.name} width="200px" height="200px" />
-			<p>Price: ${item.price}</p>
-			<p>Description: {item.description}</p>
-			</div>
+		{props.items.map((item) => <ItemCard item={item} />
+			
 
 
 
@@ -20,3 +16,4 @@ const Items = (props) => (
 
 
 export default Items;
+
