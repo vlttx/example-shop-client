@@ -5,6 +5,10 @@ import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 import store from './store.js'
 
+
+setTimeout(() => {
+	debugger}, 2000
+)
 console.log(store)
 
 ReactDOM.render(
