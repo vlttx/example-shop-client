@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
+import store from './store.js'
+
+console.log(store)
 
 ReactDOM.render(
 	<App />, 
 	document.getElementById('root'));
+
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
@@ -14,18 +19,21 @@ ReactDOM.render(
 serviceWorker.unregister();
 
 
-const store = {
-	items: [
-	{...}
-	], itemData: [
-	{
-		name: "",
-		price: 0,
-		img_url: "",
-		description: ""
-	}
-	],
-	currentItem: {
-		
-	}
-}
+
+
+
+// const store = {
+// 	items: [
+// 	{...}
+// 	], itemData: [
+// 	{
+// 		name: "",
+// 		price: 0,
+// 		img_url: "",
+// 		description: ""
+// 	}
+// 	],
+// 	currentItem: {
+
+// 	}
+// }
