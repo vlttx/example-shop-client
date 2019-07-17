@@ -42,14 +42,26 @@ class App extends Component {
 		}
 		fetch(`http://localhost:3001/login`, headers )
 		.then(r => r.json())
-		.then(console.log)
+		.then(userJSON => {
+			if (userJSON.error) {
+				alert("Invalid Credentials")
+			} else {
+			this.setState({
+				currentUser: userJSON
+			})
+		}
+		})
+		.catch(console.log)
 
 
 	}
 
 	render() {
+		const { currentUser } = this.state
 		return(
 			<div className="App">
+			<h2>{ currentUser ? `Logged in as ${currentUser.email}` : "Please log in"}</h2>
+			
 			<Login 
 			handleLoginFormSubmit={this.handleLoginFormSubmit}
 			email={this.state.loginForm.email}
