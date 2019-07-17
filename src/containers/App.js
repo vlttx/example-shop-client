@@ -19,6 +19,12 @@ class App extends Component {
 
 	handleChange = event => {
 		const { name, value } = event.target
+		this.setState({
+			loginForm: {
+				...this.state.loginForm,
+				[name]: value
+			}
+		})
 	}
 
 	handleLoginFormSubmit = event => {
@@ -28,7 +34,11 @@ class App extends Component {
 	render() {
 		return(
 			<div className="App">
-			<Login />
+			<Login 
+			handleLoginFormSubmit={this.handleLoginFormSubmit}
+			email={this.state.loginForm.email}
+			password={this.state.loginForm.password}
+			handleChange={this.handleChange}/>
 			<Items />
 			
 			</div>
