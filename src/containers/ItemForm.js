@@ -24,7 +24,7 @@ class ItemForm extends Component {
 		const {name, price, img_url, description } = this.props.itemFormData
 		return (
 			<React.Fragment>
-			Add an Item to the Inventory:
+			<p>Add an Item to the Inventory:</p>
 			<form onSubmit={this.handleOnSubmit}>
 					<div>
 			<label htmlFor="name"> Name:</label>
@@ -47,9 +47,9 @@ class ItemForm extends Component {
 				<div>		
 			<label htmlFor="img_url"> Image URL:</label>
 			<input 
-				type="url"
+				type="text"
 				onChange={this.handleOnChange}
-				name="image"
+				name="img_url"
 				value={img_url}
 				/>	
 				</div>

@@ -9,3 +9,9 @@ export const updateItemFormData = itemFormData => {
 		itemFormData
 	}
 }
+
+export const resetItemForm = () => {
+	return {
+		type: 'RESET_ITEM_FORM'
+	}
+}

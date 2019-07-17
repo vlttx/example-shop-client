@@ -1,3 +1,7 @@
+
+import {resetItemForm} from './itemForm'
+
+
 const API_URL = process.env.REACT_APP_API_URL;
 
 //action creators
@@ -7,6 +11,13 @@ const setItems = items => {
 	return {
 		type: 'GET_ITEMS_SUCCESS',
 		items
+	}
+}
+
+const addItem = item => {
+	return {
+		type: 'ADD_ITEM_SUCCESS',
+		item
 	}
 }
 //Async actions
@@ -28,11 +39,12 @@ export const createItem = item => {
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			data: JSON.stringify(item)
+			body: JSON.stringify({item:item})
 		})
 		.then(response => response.json())
 		.then(item => {
-			debugger
+			dispatch(addItem(item))
+			dispatch(resetItemForm())
 		})
 		.catch(error => console.log(error))
 	}
