@@ -4,7 +4,6 @@ import Login from '../components/Login'
 import Items from './Items'
 
 
-
 class App extends Component {
 	constructor(props){
 		super()
@@ -28,6 +27,23 @@ class App extends Component {
 	}
 
 	handleLoginFormSubmit = event => {
+		event.preventDefault()
+		//now need to submit info from the front to the back end where we authenticate the user
+		//with that response set state
+		const userInfo = this.state.loginForm
+		const headers = {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				user: userInfo
+			})
+		}
+		fetch(`http://localhost:3001/login`, headers )
+		.then(r => r.json())
+		.then(console.log)
+
 
 	}
 
