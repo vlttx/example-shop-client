@@ -6,18 +6,11 @@ import Items from './Items'
 const API_URL = process.env.REACT_APP_API_URL
 class App extends Component {
 
-	constructor(props){
-		super(props)
-
-		this.state = {
-			items: []
-		}
-	}
 
 	componentDidMount(){
 		fetch(`${API_URL}`)
 		.then(response => response.json())
-		.then(items => this.setState({items}))
+		// .then(items => this.setState({items}))
 	}
 	render() {
 		console.log(this.state)
