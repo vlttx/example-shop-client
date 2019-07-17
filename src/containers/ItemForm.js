@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
 
 
 
@@ -20,6 +21,10 @@ class ItemForm extends Component {
 
 }
 
+const mapStateToProps = state => {
+	return {
+		itemFormData: state.itemFormData
+	}
+}
 
-
-export default ItemForm
+export default connect(mapStateToProps)(ItemForm)
