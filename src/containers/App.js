@@ -12,7 +12,8 @@ class App extends Component {
 			loginForm: {
 				email: "",
 				password: ""
-			}
+			},
+			items: []
 		}
 	}
 
@@ -52,7 +53,9 @@ class App extends Component {
 		}
 		})
 		.catch(console.log)
-
+		getItems = () => {
+			
+		}
 
 	}
 
@@ -67,7 +70,7 @@ class App extends Component {
 			email={this.state.loginForm.email}
 			password={this.state.loginForm.password}
 			handleChange={this.handleChange}/>
-			<Items />
+			<Items items={this.state.items}/>
 			
 			</div>
 		);
