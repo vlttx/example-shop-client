@@ -1,10 +1,21 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import { updateItemFormData } from '..actions/itemFormData'
 
 
 
 
 class ItemForm extends Component {
+
+	handleOnChange = event => {
+		const {name, value} = event.target
+		const currentItemFormData = Object.assign({}, this.props.itemFormData, {
+			[name]: value
+		})
+		this.props.updateItemFormData(currentItemFormData)
+	}
+
+
 	render() {
 		const {name, price, img_url, description } = this.props.itemFormData
 		return (
@@ -15,6 +26,7 @@ class ItemForm extends Component {
 			<label htmlFor="name"> Name:</label>
 			<input 
 				type="text"
+				onChange={this.handleOnChange}
 				name="name"
 				value={name}
 				/>
@@ -22,7 +34,8 @@ class ItemForm extends Component {
 				<div>
 			<label htmlFor="price"> Price:</label>
 			<input 
-				type="text"
+				type="number"
+				onChange={this.handleOnChange}
 				name="price"
 				value={price}
 				/>
@@ -30,7 +43,8 @@ class ItemForm extends Component {
 				<div>
 			<label htmlFor="img_url"> Image URL:</label>
 			<input 
-				type="text"
+				type="url"
+				onChange={this.handleOnChange}
 				name="image"
 				value={img_url}
 				/>
@@ -39,6 +53,7 @@ class ItemForm extends Component {
 			<label htmlFor="description"> Description:</label>
 			<input 
 				type="text"
+				onChange={this.handleOnChange}
 				name="description"
 				value={description}
 				/>
