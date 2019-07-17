@@ -1,18 +1,11 @@
 import { createStore, applyMiddleware, combineReducers, compose} from 'redux'
 import thunk from 'redux-thunk'
+import itemsReducer from './reducers/items'
 
 
 
 
-const itemsReducer = (state = [], action) => {
-	switch(action.type) {
-		case 'GET_ITEMS_SUCCESS':
-		return action.items;
 
-		default:
-		return state;
-	}
-}
 
 
 const reducers = combineReducers({

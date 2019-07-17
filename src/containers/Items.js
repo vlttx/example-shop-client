@@ -7,6 +7,12 @@ import ItemForm from '../containers/ItemForm'
 
 class Items extends Component { 
 
+	componentDidMount() {
+		this.props.dispatch({type: "GET_ITEMS_SUCCESS",
+			items: [ {name: "test", price: 1, img_url: "test", description: "fjsbjgb"}]
+		})
+	}
+
 render(){
 return (
 	<div>
@@ -18,6 +24,11 @@ return (
 	)};
 }
 
+const mapStateToProps = (state) => {
+	return ({
+		items: state.items
+	})
+}
 
-export default Items;
+export default connect(mapStateToProps)(Items);
 

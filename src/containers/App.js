@@ -13,10 +13,9 @@ class App extends Component {
 		// .then(items => this.setState({items}))
 	}
 	render() {
-		console.log(this.state)
 		return(
 			<div className="App">
-			<Items items={this.state.items} />
+			<Items items={state.items} />
 			</div>
 		);
 	}
