@@ -15,7 +15,7 @@ export const getItems = () => {
 	return dispatch => {
 		return fetch(`${API_URL}`)
 		.then(response => response.json())
-		.then(items => dispatch(setItems))
+		.then(items => dispatch(setItems(items)))
 		.catch(error => console.log(error))
 	}
 }
