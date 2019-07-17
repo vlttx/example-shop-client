@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { updateItemFormData } from '..actions/itemFormData'
+import { updateItemFormData } from '../actions/itemForm'
 
 
 
@@ -74,4 +74,4 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps)(ItemForm)
+export default connect(mapStateToProps, {updateItemFormData})(ItemForm)
