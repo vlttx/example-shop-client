@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { updateItemFormData } from '../actions/itemForm'
+import { createItem } from '../actions/items'
 
 
 
@@ -15,21 +16,24 @@ class ItemForm extends Component {
 		this.props.updateItemFormData(currentItemFormData)
 	}
 
-
+	handleOnSubmit = event =>{
+		event.preventDefault()
+		this.props.createItem(this.props.itemFormData)
+	}
 	render() {
 		const {name, price, img_url, description } = this.props.itemFormData
 		return (
-			<div>
+			<React.Fragment>
 			Add an Item to the Inventory:
-			<form>
-			<div>
+			<form onSubmit={this.handleOnSubmit}>
+					<div>
 			<label htmlFor="name"> Name:</label>
 			<input 
 				type="text"
 				onChange={this.handleOnChange}
 				name="name"
 				value={name}
-				/>
+				/>	
 				</div>
 				<div>
 			<label htmlFor="price"> Price:</label>
@@ -38,34 +42,31 @@ class ItemForm extends Component {
 				onChange={this.handleOnChange}
 				name="price"
 				value={price}
-				/>
+				/>	
 				</div>
-				<div>
+				<div>		
 			<label htmlFor="img_url"> Image URL:</label>
 			<input 
 				type="url"
 				onChange={this.handleOnChange}
 				name="image"
 				value={img_url}
-				/>
+				/>	
 				</div>
-				<div>
+				<div>		
 			<label htmlFor="description"> Description:</label>
 			<input 
 				type="text"
 				onChange={this.handleOnChange}
 				name="description"
 				value={description}
-				/>
-				</div>
+				/>		
+				</div>	
+			<button type="submit"> Add Item </button>
 			</form>
-			</div>
-
-
+			</React.Fragment>
 			)
-	}
-
-
+}
 }
 
 const mapStateToProps = state => {
@@ -74,4 +75,4 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps, {updateItemFormData})(ItemForm)
+export default connect(mapStateToProps, {updateItemFormData, createItem})(ItemForm)
